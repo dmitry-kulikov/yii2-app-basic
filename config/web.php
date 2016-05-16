@@ -17,6 +17,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'acceptableRedirectTypes' => ['*/*', 'text/html', 'application/xhtml+xml'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
