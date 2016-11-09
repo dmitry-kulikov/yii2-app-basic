@@ -38,6 +38,26 @@ The minimum requirement by this project template that your Web server supports P
 INSTALLATION
 ------------
 
+### Install via Composer
+
+If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
+at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+
+You can then install this project template using the following command:
+
+~~~
+php composer.phar global require "fxp/composer-asset-plugin:^1.2.0"
+php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+~~~
+
+Now you should be able to access the application through the following URL, assuming `basic` is the directory
+directly under the Web root.
+
+~~~
+http://localhost/basic/web/
+~~~
+
+
 ### Install from an Archive File
 
 Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
@@ -53,26 +73,6 @@ Set cookie validation key in `config/web.php` file to some random secret string:
 ```
 
 You can then access the application through the following URL:
-
-~~~
-http://localhost/basic/web/
-~~~
-
-
-### Install via Composer
-
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
-
-You can then install this project template using the following command:
-
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
-
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
 
 ~~~
 http://localhost/basic/web/
@@ -180,13 +180,13 @@ to collect code coverage. You can run your tests and collect coverage with the f
 
 ```
 #collect coverage for all tests
-composer exec codecept run --coverage-html --coverage-xml
+composer exec codecept run -- --coverage-html --coverage-xml
 
 #collect coverage only for unit tests
-composer exec codecept run unit --coverage-html --coverage-xml
+composer exec codecept run unit -- --coverage-html --coverage-xml
 
 #collect coverage for unit and functional tests
-composer exec codecept run functional,unit --coverage-html --coverage-xml
+composer exec codecept run functional,unit -- --coverage-html --coverage-xml
 ```
 
 You can see code coverage output under the `tests/_output` directory.
